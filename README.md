@@ -9,3 +9,7 @@ To see it in action you should have the [Pocket app](https://play.google.com/sto
 # See it in action!
 
 ![gif](http://g.recordit.co/2UZq8RQkiG.gif)
+
+# TODO
+-[ ] Add Activity when app is opened from launcher with explanation of app
+-[ ] Add ability to share to other apps
