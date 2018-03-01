@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import android.widget.Toast
 
 
@@ -12,7 +13,7 @@ class BrowserInterceptActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val action = intent.action
-        var dataString = ""
+        var dataString: String
         if (Intent.ACTION_VIEW.equals(action)) {
             dataString = intent.dataString
 
@@ -24,7 +25,7 @@ class BrowserInterceptActivity : Activity() {
             }
         }
 
-        finish()
+        finishAffinity()
     }
 
     private fun openInPocket(dataString: String) {
@@ -33,7 +34,7 @@ class BrowserInterceptActivity : Activity() {
         intent.putExtra(Intent.EXTRA_TEXT, dataString)
 
         if (isPocketAvailable(intent)) {
-                startActivity(intent)
+            startActivity(intent)
         } else {
             showError()
         }
@@ -44,9 +45,8 @@ class BrowserInterceptActivity : Activity() {
     private fun isPocketAvailable(intent: Intent): Boolean {
         val packageManager = packageManager ?: return false
         val activities = packageManager.queryIntentActivities(intent, 0)
-        val isIntentSafe = activities.size > 0
 
-        return isIntentSafe
+        return activities.size > 0
     }
 
     private fun showError() {
