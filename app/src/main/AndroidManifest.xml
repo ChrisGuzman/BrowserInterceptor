@@ -9,14 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity
             android:name=".BrowserInterceptActivity"
-            android:theme="@android:style/Theme.NoDisplay">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:theme="@android:style/Theme.NoDisplay"
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -39,7 +36,8 @@
                 <data android:mimeType="application/xhtml+xml" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity">
+
+        <activity android:name=".AboutActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
