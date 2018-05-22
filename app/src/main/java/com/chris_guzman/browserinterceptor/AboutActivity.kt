@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import com.chris_guzman.browserinterceptor.constants.*
 import kotlinx.android.synthetic.main.activity_about.*
 import org.jetbrains.anko.browse
 import org.jetbrains.anko.share
@@ -13,27 +14,26 @@ class AboutActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_about)
-        title = "How to use Browser Interceptor"
+        title = getString(R.string.about_activity_title)
 
         github.setOnClickListener{
-            browse("https://github.com/ChrisGuzman/BrowserInterceptor")
+            browse(SOURCE_CODE)
         }
 
         chris_site.setOnClickListener{
-            browse("http://chris-guzman.com/")
+            browse(PERSONAL_WEBSITE)
         }
 
         about_pocket.setOnClickListener{
-            val appPackageName = "com.ideashower.readitlater.pro"
             try {
-                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=$appPackageName")))
+                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(POCKET_PLAY_STORE_DEEPLINK)))
             } catch (anfe: android.content.ActivityNotFoundException) {
-                browse("http://play.google.com/store/apps/details?id=$appPackageName")
+                browse(POCKET_PLAY_STORE_LINK)
             }
         }
 
         share_button.setOnClickListener{
-            share("Check out Browser Interceptor on the Play Store. chris-guzman.com/browser_intercept.html")
+            share(getString(R.string.share_app, SHARE_LINK))
         }
     }
 }

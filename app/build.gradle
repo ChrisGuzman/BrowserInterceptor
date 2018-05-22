@@ -4,14 +4,14 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'com.github.alexfu.androidautoversion'
+
 android {
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.chris_guzman.browserinterceptor"
         minSdkVersion 19
         targetSdkVersion 27
-        versionCode 3
-        versionName "1.1.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
     }
