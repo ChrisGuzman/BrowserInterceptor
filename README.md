@@ -15,5 +15,3 @@ To see it in action you should have the [Pocket app](https://play.google.com/sto
 - [X] Add Activity when app is opened from launcher with explanation of app
 
 - [ ] Add ability to share to other apps
-
-- [ ] Add tests?
